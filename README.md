@@ -26,6 +26,7 @@ make check
 Pieces of code
 ---------------------
 
+```
 000.main	Simple main function that returns 0
 
 011.const	Uses signed char
@@ -113,3 +114,4 @@ Pieces of code
 144.array	Uses signed and unsigned short int Bubble Sort
 145.array	Uses signed and unsigned int Bubble Sort
 146.array	Uses signed and unsigned long long int Bubble Sort
+```
