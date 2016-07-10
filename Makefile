@@ -5,7 +5,7 @@ ECHO = /bin/echo
 
 CROSS_CFLAGS=-g -specs=archc -msoft-float
 
-TESTS = $(patsubst %.c,%,$(wildcard 00*.c))
+TESTS = $(patsubst %.c,%,$(wildcard *.c))
 
 # Use rules
 help:
