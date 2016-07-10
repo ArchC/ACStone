@@ -1,36 +1,45 @@
 
-CC = gcc
-CFLAGS = -g
 
-SUFFIX = .x86
+SUFFIX = .$(ARCH)
+ECHO = /bin/echo
 
-TESTS = $(patsubst %.c,%$(SUFFIX),$(wildcard *.c))
+CROSS_CFLAGS=-g -specs=archc -msoft-float
+
+TESTS = $(patsubst %.c,%,$(wildcard 00*.c))
 
 # Use rules
 help:
-	@echo -e "\nRules:\n"
-	@echo -e "help: Show this help"
-	@echo -e "build: Compile programs"
-	@echo -e "clean: Remove generated files"
-	@echo -e "all: clean build\n"
+	@$(ECHO) -e "\nRules:\n"
+	@$(ECHO) -e "help: \tShow this help"
+	@$(ECHO) -e "build: \tCompile programs"
+	@$(ECHO) -e "run: \tRun the simulator with gdb commands"
+	@$(ECHO) -e "check: \tCheck the simulator outputs with the host outputss"
+	@$(ECHO) -e "clean: \tRemove generated files"
+	@$(ECHO) -e "\nEdit and source the file 'acstone.env.sh' before of all\n"
 
 
 # Compile programs
 build: $(TESTS)
 
-$(TESTS): %$(SUFFIX): %.c
-	$(CC) $(CFLAGS) $< -o $@
+$(TESTS): 
+	$(CROSS_COMPILER) $(CROSS_CFLAGS) $@.c -o $@$(SUFFIX)
+	gcc -g $@.c -o $@.x86
 
 
 # Clean executables and backup files
 clean: 
-	$(foreach test,$(TESTS),rm -f $(test))
 	rm -f *~
 	rm -f *.cmd
 	rm -f *.out
+	rm -f *.$(ARCH)
+	rm -f *.x86
 
-# Clean executables, backup files and compile programs
-all: clean build
+run:
+	./bin/run_x86.sh
+	./bin/run_simulator.sh &
+	./bin/run_gdb.sh 
 
+check:
+	./bin/check.sh
 
 .PHONY: build clean all

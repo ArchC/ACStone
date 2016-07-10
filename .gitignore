@@ -1,0 +1,7 @@
+*.mips
+*.out
+*.arm
+*.powerpc
+*.sparc
+*.x86
+*.cmd
