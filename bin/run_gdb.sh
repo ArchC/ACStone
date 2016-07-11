@@ -19,7 +19,7 @@ for I in `ls *.${ARCH}`; do
 
     ${GDB} ${I} --command=${NAME}.cmd | cut -s -f 2 -d '$' | cut -f 2 -d '=' > ${NAME}.${ARCH}.out
 
-    sleep 3
+    sleep 1
 
 done
 
