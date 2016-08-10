@@ -4,7 +4,7 @@
 for I in `ls *.${ARCH}`
   do
  
-  ${SIMULATOR} --load_obj=${I} --gdb
+  ${SIMULATOR}${I} --gdb
 
 done
 
