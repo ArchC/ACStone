@@ -17,6 +17,7 @@ for I in `ls *.${ARCH}`; do
     cat gdb/firstcommands.gdb > ${NAME}.cmd
     tail -n ${NLSHOW} gdb/${NAME}.gdb >> ${NAME}.cmd
 
+    echo "${GDB} ${I} --command=${NAME}.cmd"
     ${GDB} ${I} --command=${NAME}.cmd | cut -s -f 2 -d '$' | cut -f 2 -d '=' > ${NAME}.${ARCH}.out
 
     sleep 1
