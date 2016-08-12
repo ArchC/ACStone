@@ -104,7 +104,7 @@ int main() {
   errorsli=0;
   for(count=0 ; count < 20 ; count++)
     if(sliinput[count] > sliinput[count+1])
-      erroruli=1;
+      errorsli=1;
 
   /* Check */
   erroruli=0;

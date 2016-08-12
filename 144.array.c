@@ -102,7 +102,7 @@ int main() {
   errorssi=0;
   for(count=0 ; count < 20 ; count++)
     if(ssiinput[count] > ssiinput[count+1])
-      errorusi=1;
+      errorssi=1;
 
   /* Check */
   errorusi=0;
