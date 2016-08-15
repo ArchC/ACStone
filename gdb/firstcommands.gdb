@@ -1,3 +1,3 @@
 b main
-target remote localhost:5000
+target remote localhost:$GDBPORT
 c

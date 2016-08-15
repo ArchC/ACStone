@@ -4,7 +4,7 @@
 for I in `ls *.${ARCH}`
   do
  
-  ${SIMULATOR}${I} --gdb
+  ${SIMULATOR}${I} --port=${GDBPORT}
 
 done
 

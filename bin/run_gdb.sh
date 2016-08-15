@@ -15,6 +15,7 @@ for I in `ls *.${ARCH}`; do
 
     rm -f ${NAME}.cmd
     cat gdb/firstcommands.gdb > ${NAME}.cmd
+    sed -i "s@\$GDBPORT@$GDBPORT@g" ${NAME}.cmd
     tail -n ${NLSHOW} gdb/${NAME}.gdb >> ${NAME}.cmd
 
     echo "${GDB} ${I} --command=${NAME}.cmd"
