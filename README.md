@@ -1,6 +1,8 @@
 ACStone
 ============
 
+* For adding another architecture, follow riscv.mk convention and create the .mk file with $(TESTS) rule.
+
 * Execute `make` to see the options
 
 * Edit and source the file `acstone.env.sh`
@@ -22,6 +24,11 @@ make run
 ```bash
 make check
 ```
+* If you are using acsim with -scsv flag, run the following to generate consolidated statistics
+```bash
+make consolidate
+```
+
 
 Pieces of code
 ---------------------
