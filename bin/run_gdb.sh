@@ -18,10 +18,15 @@ for I in `ls *.${ARCH}`; do
     sed -i "s@\$GDBPORT@$GDBPORT@g" ${NAME}.cmd
     tail -n ${NLSHOW} gdb/${NAME}.gdb >> ${NAME}.cmd
 
-    echo "${GDB} ${I} --command=${NAME}.cmd"
-    ${GDB} ${I} --command=${NAME}.cmd | cut -s -f 2 -d '$' | cut -f 2 -d '=' > ${NAME}.${ARCH}.out
+    echo "${GDB} ${I} --command=${NAME}.cmd -batch"
+    ${GDB} ${I} --command=${NAME}.cmd -batch | cut -s -f 2 -d '$' | cut -f 2 -d '=' > ${NAME}.${ARCH}.out
 
-    sleep 1
+    if [ -e ${ARCH}_lastrun_stats.csv ]
+    then
+        mv ${ARCH}_lastrun_stats.csv ${I}.stats
+    fi
+
+    sleep 0.25
 
 done
 
