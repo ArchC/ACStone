@@ -45,7 +45,7 @@ int main() {
   signed char i;
   unsigned char j;
     
-  int count,errorsc,erroruc;
+  int count=0,errorsc=0,erroruc=0;
 
   scinput[0]=0xDF;
   scinput[1]=0x44;
