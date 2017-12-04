@@ -5,3 +5,9 @@
 *.sparc
 *.x86
 *.cmd
+*.o
+.gdb_history
+*.stats
+*.pdf
+*.png
+*.csv
